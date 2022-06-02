@@ -8,6 +8,7 @@ use App\Mapel;
 use App\Nilai;
 use App\Siswa;
 use App\Lembur;
+use App\Absensi;
 use App\Periode;
 use App\Karyawan;
 use App\PKGsiswa;
@@ -40,6 +41,15 @@ class LaporanController extends Controller
     {
         $data = Lembur::get();
         $pdf = PDF::loadView('superadmin.laporan.pdf_lembur', compact('data'))->setPaper('legal');
+        return $pdf->stream();
+    }
+
+    public function absensi(Request $req)
+    {
+        $data = Absensi::where('tanggal', $req->tanggal)->get();
+
+        $periode = $req->tanggal;
+        $pdf = PDF::loadView('superadmin.laporan.pdf_absensi', compact('data', 'periode'))->setPaper('legal');
         return $pdf->stream();
     }
 }

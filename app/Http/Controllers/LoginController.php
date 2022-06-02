@@ -13,7 +13,7 @@ class LoginController extends Controller
             if (Auth::user()->hasRole('superadmin')) {
                 return redirect('/beranda');
             } else {
-                return 'progress';
+                return redirect('/beranda/karyawan');
             }
         } else {
             toastr()->error('Username / Password Tidak Ditemukan');

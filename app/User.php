@@ -46,8 +46,8 @@ class User extends Authenticatable
         return $this->roles()->where('name', $role)->count() == 1;
     }
 
-    public function siswa()
+    public function karyawan()
     {
-        return $this->hasOne(Siswa::class, 'user_id');
+        return $this->hasOne(Karyawan::class, 'user_id');
     }
 }

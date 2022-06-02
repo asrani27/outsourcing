@@ -4,9 +4,10 @@ Route::post('/login', 'LoginController@login');
 Route::get('/', 'LoginController@checkAuth');
 Route::get('/logout', 'LoginController@logout');
 
-Route::group(['middleware' => ['auth', 'role:siswa']], function () {
-    Route::get('/siswa/beranda', 'SiswaController@beranda');
-    Route::post('/siswa/raport', 'SiswaController@cetakraport');
+Route::group(['middleware' => ['auth', 'role:karyawan']], function () {
+    Route::get('/beranda/karyawan', 'AbsensiController@beranda');
+    Route::post('/beranda/karyawan/absensi', 'AbsensiController@simpanabsensi');
+    Route::get('/beranda/karyawan/absensi', 'AbsensiController@riwayat');
 });
 
 Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
@@ -68,4 +69,5 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
     Route::get('/laporan/karyawan', 'LaporanController@karyawan');
     Route::get('/laporan/cuti', 'LaporanController@cuti');
     Route::get('/laporan/lembur', 'LaporanController@lembur');
+    Route::post('/laporan/absensi', 'LaporanController@absensi');
 });

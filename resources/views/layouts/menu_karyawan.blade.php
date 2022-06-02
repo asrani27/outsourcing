@@ -15,8 +15,15 @@
         <li class="header">MAIN NAVIGATION</li>
 
         <li class="">
-            <a href="/siswa/beranda">
+            <a href="/beranda/karyawan">
                 <i class="fa fa-dashboard"></i> <span>Beranda</span>
+                <span class="pull-right-container">
+                </span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/beranda/karyawan/absensi">
+                <i class="fa fa-list"></i> <span>Riwayat Absensi</span>
                 <span class="pull-right-container">
                 </span>
             </a>
