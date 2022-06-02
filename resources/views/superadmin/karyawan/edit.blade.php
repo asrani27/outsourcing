@@ -19,7 +19,7 @@
                         <input type="text" name="nik" class="form-control" value="{{$data->nik}}" required>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Nama Siswa</label>
+                        <label for="exampleInputEmail1">Nama Karyawan</label>
                         <input type="text" name="nama" class="form-control" value="{{$data->nama}}" required>
                     </div>
                     <div class="form-group">
