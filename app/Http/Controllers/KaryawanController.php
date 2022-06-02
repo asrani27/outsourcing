@@ -99,7 +99,7 @@ class KaryawanController extends Controller
         $k->update([
             'password' => bcrypt(Karyawan::find($id)->nik),
         ]);
-        toastr()->success('Berhasil Di reset, password : ' . $k->nik);
+        toastr()->success('Berhasil Di reset, password : ' . Karyawan::find($id)->nik);
         return back();
     }
 }

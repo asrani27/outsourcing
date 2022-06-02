@@ -126,16 +126,16 @@
                 <tr>
                     <td>1</td>
                     <td>Gaji Pokok</td>
-                    <td>{{number_format($data->gaji_pokok)}}</td>
+                    <td>Rp. {{number_format($data->gaji_pokok)}}</td>
                 </tr>
                 <tr>
                     <td>2</td>
                     <td>Bonus</td>
-                    <td>{{number_format($data->bonus)}}</td>
+                    <td>Rp. {{number_format($data->bonus)}}</td>
                 </tr>
                 <tr>
                     <td colspan=2>Total</td>
-                    <td>{{number_format($data->bonus + $data->gaji_pokok)}}</td>
+                    <td>Rp. {{number_format($data->bonus + $data->gaji_pokok)}}</td>
                 </tr>
             </tbody>
         </table>

@@ -45,6 +45,9 @@
                                 <a href="/cuti/delete/{{$item->id}}" class="btn btn-sm btn-info"
                                     onclick="return confirm('Yakin ingin di hapus?');"><i class="fa fa-trash"></i>
                                     Delete</a>
+                                <a href="/cuti/print/{{$item->id}}" target="_blank" class="btn btn-sm btn-info"><i
+                                        class="fa fa-print"></i>
+                                    Print</a>
                             </td>
                         </tr>
                         @endforeach

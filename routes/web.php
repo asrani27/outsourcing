@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
     Route::get('/cuti/edit/{id}', 'CutiController@cutiedit');
     Route::post('/cuti/edit/{id}', 'CutiController@cutiupdate');
     Route::get('/cuti/delete/{id}', 'CutiController@cutidelete');
+    Route::get('/cuti/print/{id}', 'CutiController@suratcuti');
 
     Route::get('/lembur', 'LemburController@lembur');
     Route::get('/lembur/create', 'LemburController@lemburcreate');

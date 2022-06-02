@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cuti;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 
 class CutiController extends Controller
@@ -46,5 +47,11 @@ class CutiController extends Controller
             toastr()->error('Tidak bisa di hapus karena ada relasi dengan data gaji');
             return back();
         }
+    }
+    public function suratcuti($id)
+    {
+        $data = Cuti::find($id);
+        $pdf = PDF::loadView('superadmin.cuti.surat', compact('data'))->setPaper('legal');
+        return $pdf->stream();
     }
 }
