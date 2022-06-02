@@ -133,7 +133,9 @@
             </tr>
         </table>
         <br />
-        Selama 8 Hari, Terhitung Dari Tanggal, Sampai Tanggal dengan ketentuan sebagai berikut :<br />
+        Selama {{\Carbon\Carbon::parse($data->sampai)->diffInDays($data->mulai)}} Hari, Terhitung Dari Tanggal
+        {{\Carbon\Carbon::parse($data->mulai)->format('d/m/Y')}}, Sampai
+        Tanggal {{\Carbon\Carbon::parse($data->sampai)->format('d/m/Y')}} dengan ketentuan sebagai berikut :<br />
         a. Sebelum menjalankan cuti, karyawan wajib menyerahkan pekerjaan nya kepada atasan langsung atau kepada rekan
         kerja lain yan di tunjuk.<br />
         b. Setelah menjalankan cuti, karyawan diwajibkan melapor kepada atasan dan kembali bekerja sebagaimana
