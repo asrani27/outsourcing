@@ -11,11 +11,32 @@
  Target Server Version : 50724
  File Encoding         : 65001
 
- Date: 30/05/2022 13:17:18
+ Date: 02/06/2022 13:50:57
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for absensi
+-- ----------------------------
+DROP TABLE IF EXISTS `absensi`;
+CREATE TABLE `absensi`  (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `tanggal` date NULL DEFAULT NULL,
+  `karyawan_id` int(11) NULL DEFAULT NULL,
+  `jam_masuk` time NULL DEFAULT NULL,
+  `jam_pulang` time NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of absensi
+-- ----------------------------
+INSERT INTO `absensi` VALUES (1, '2022-06-02', 4, '15:12:00', '13:12:00', '2022-06-02 05:12:14', '2022-06-02 05:12:38');
+INSERT INTO `absensi` VALUES (2, '2022-06-01', 4, '14:17:00', NULL, '2022-06-02 05:17:37', '2022-06-02 05:17:37');
 
 -- ----------------------------
 -- Table structure for cuti
@@ -121,7 +142,7 @@ CREATE TABLE `karyawan`  (
 -- Records of karyawan
 -- ----------------------------
 INSERT INTO `karyawan` VALUES (3, 2, 1, '5467890-', 'tyfguhiojp', 'strdyfugihojk', 'L', 'drtryfguihjok', '2022-05-24', 'ouiyutytyghjkl', '2022-05-24', '0987654', '2022-05-25 09:32:01', '2022-05-25 14:34:56', 'skjdhfkjsd@msaokfgsdf.com', 5);
-INSERT INTO `karyawan` VALUES (4, 2, 3, 'ijo', 'jklj', 'ojkol', 'L', 'jkjlk', '2022-05-10', 'asfasd', '2022-05-17', '122435465465', '2022-05-25 15:18:33', '2022-05-25 15:18:33', 'asd@gmail.com', NULL);
+INSERT INTO `karyawan` VALUES (4, 2, 3, 'ijo', 'jklj', 'ojkol', 'L', 'jkjlk', '2022-05-10', 'asfasd', '2022-05-17', '122435465465', '2022-05-25 15:18:33', '2022-06-02 04:46:19', 'asd@gmail.com', 7);
 
 -- ----------------------------
 -- Table structure for lembur
@@ -181,10 +202,7 @@ CREATE TABLE `role_users`  (
 -- Records of role_users
 -- ----------------------------
 INSERT INTO `role_users` VALUES (1, 1);
-INSERT INTO `role_users` VALUES (2, 2);
-INSERT INTO `role_users` VALUES (3, 2);
-INSERT INTO `role_users` VALUES (4, 2);
-INSERT INTO `role_users` VALUES (5, 2);
+INSERT INTO `role_users` VALUES (7, 2);
 
 -- ----------------------------
 -- Table structure for roles
@@ -221,16 +239,13 @@ CREATE TABLE `users`  (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `users_username_unique`(`username`) USING BTREE,
   UNIQUE INDEX `users_email_unique`(`email`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, 'admin', NULL, 'admin', '2022-05-26 10:45:42', '$2y$10$EWvbqYJVXAtHOlyX/IR9bOQ7EvE2yQ05gBxZmiFX.BkUYiyo8XHtS', 'gvbJBv0SRRRIVglTcFUH3a9WkTPCoZsnC6IRDkvtHKIkl0c1bvbcuOlrApcr', '2022-05-26 10:45:42', '2022-05-26 10:45:42');
-INSERT INTO `users` VALUES (2, 'roby', NULL, '12345', '2022-05-24 08:13:55', '$2y$10$AVn3/NfjLfXP1qtZoYvot.eNVX7LxXlRC5/5kgBc.jPvR.OWiT8Wq', '4dyJtm6use2FcpXvfurRgqfzT3gUpe7yiaRKHee6yUhHqZWIPQtlPs2roSFK', '2022-05-24 08:13:55', '2022-05-24 08:13:55');
-INSERT INTO `users` VALUES (3, 'Sintya', NULL, '32543654', '2022-05-24 08:02:20', '$2y$10$z5ryDgEAZiCsltmqPb3Q5.ObKf6GTn61SNhK5VeABvLkP1xT2G/4e', NULL, '2022-05-24 00:02:20', '2022-05-24 00:02:20');
-INSERT INTO `users` VALUES (4, 'andy lau', NULL, '123432', '2022-05-24 08:22:49', '$2y$10$f1fZoxiKpMi.RZTpt2gRZ.9dxGd3WCX5FipgBeeHTR6Om07EuOAa.', 'dSeW8Sz0cOnjaCPu85bc3Vt8RdolZqPV1o2ZpCxco76EbYQBVMAZcHAqmaqI', '2022-05-24 08:22:49', '2022-05-24 08:22:49');
-INSERT INTO `users` VALUES (5, 'tyfguhiojp', NULL, '5467890-', '2022-05-25 22:35:58', '$2y$10$8pXnURcaZu62b3FYbxpsGOxWD2a78l2Mr.kX1pTgcuybVCa31A4UK', NULL, '2022-05-25 22:35:58', '2022-05-25 14:35:58');
+INSERT INTO `users` VALUES (1, 'admin', NULL, 'admin', '2022-06-02 12:46:25', '$2y$10$EWvbqYJVXAtHOlyX/IR9bOQ7EvE2yQ05gBxZmiFX.BkUYiyo8XHtS', 'aHKnbcdWPmFgfCDU33TZbiQZGwCwJt2ToEgFW54XuN4dT6gNImtRFXYfZi5Q', '2022-06-02 12:46:25', '2022-06-02 12:46:25');
+INSERT INTO `users` VALUES (7, 'jklj', NULL, 'ijo', '2022-06-02 13:18:09', '$2y$10$6QWuGT.M0GCHdw43rlUkZuI/Hg66bjSxtMM9nk0BNCVtNBR5klNz6', 'mVoRRY8VFYpSNksM15C9MuygyvqYDfUzEseVZX5EAvYOzuWBhi1A0sJzqZRi', '2022-06-02 13:18:09', '2022-06-02 13:18:09');
 
 -- ----------------------------
 -- Table structure for vendor
